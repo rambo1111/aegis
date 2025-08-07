@@ -45,7 +45,7 @@ async fn main() -> anyhow::Result<()> {
     // Define the application routes and middleware
     let app = Router::new()
         .route("/seal", post(seal_handler))
-        .route("/health", get(health_check_handler))
+        .route("/cron", get(cron_job_handler))
         .route("/", get(root_redirect_handler).head(root_redirect_handler))
         .layer(DefaultBodyLimit::max(100 * 1024 * 1024))
         .layer(cors);
@@ -64,8 +64,9 @@ async fn root_redirect_handler() -> Redirect {
     Redirect::to("https://www.google.com")
 }
 
-async fn health_check_handler() -> &'static str {
-    "cron-job successfull"
+// A simple handler for the cron job endpoint.
+async fn cron_job_handler() -> &'static str {
+    "cron-job successful"
 }
 
 #[instrument(skip_all, fields(image_size, metadata_size))]
