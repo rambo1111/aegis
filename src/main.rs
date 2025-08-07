@@ -4,7 +4,7 @@ use axum::{
     extract::{DefaultBodyLimit, Multipart},
     http::{header, Method, StatusCode},
     response::{IntoResponse, Redirect, Response},
-    routing::{get, head, post},
+    routing::{get, post},
     Router,
 };
 use p256::ecdsa::SigningKey;
