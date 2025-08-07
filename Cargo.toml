@@ -1,0 +1,22 @@
+[package]
+name = "aegis-sealer"
+version = "0.1.0"
+edition = "2024"
+default-run = "aegis-sealer"
+
+[features]
+verifier = []
+
+[dependencies]
+anyhow = "1.0.98"
+axum = { version = "0.8.4", features = ["multipart"] }
+dotenvy = "0.15.7"
+hex = "0.4.3"
+p256 = { version = "0.13.2", features = ["ecdsa"] }
+serde = { version = "1.0.219", features = ["derive"] }
+sha2 = "0.10.9"
+thiserror = "2.0.12"
+tokio = { version = "1.47.1", features = ["full"] }
+tower-http = { version = "0.6.6", features = ["cors"] }
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
